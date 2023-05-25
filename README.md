@@ -1,4 +1,4 @@
-# react-native-argon2
+# Argon2 for React Native
 
 React Native Wrapper around native Argon2 implementations:
 
