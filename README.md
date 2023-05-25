@@ -11,9 +11,6 @@ Android: [argon2kt](//github.com/lambdapioneer/argon2kt)
 npm i @mayavolt/argon2-rn --save
 "argon2-rn": "mayavolt/argon2-rn#master"
 ```
-
-Compatibility Table
-
 Working with React-Native 0.71.8
 
 ## Usage
@@ -26,10 +23,8 @@ try {
     const salt = 'random-strong-salt';
     const result = await argon2(password, salt, {});
     const {rawHash, encodedHash} = result;
-        
-    console.warn('hashedPassword: ', rawHash);
 } catch (e) {
-    console.warn(e);
+    //...
 }
 ```
 
