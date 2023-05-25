@@ -18,7 +18,7 @@
     "android",
     "react-component"
   ],
-  "author": "zanechua",
+  "author": "zanechua (fork mayavolt)",
   "license": "MIT",
   "devDependencies": {
     "standard-version": "^9.5.0"
