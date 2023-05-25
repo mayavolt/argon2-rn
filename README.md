@@ -42,22 +42,21 @@ The package takes in the following variables:
 | config.hashLength   | integer |
 | config.mode         | string  |
 
-You are not required to configure the third parameter which is the `config` object, however you do have to provide an empty object to it if you are not changing any of the values. You can set config values with the following example:
+You can specify a third optional parameter, the configuration object. The default configuration values do demonstrate in the following example:
 
 ```javascript
 const result = await argon2(
     password,
     salt,
     {
-      iterations: 5,
-      memory: 16 * 1024,
-      parallelism: 2,
-      hashLength: 20,
-      mode: 'argon2i'
+      iterations: 2,
+      memory: 32 * 1024,
+      parallelism: 1,
+      hashLength: 32,
+      mode: 'argon2id'
     }
 );
 ```
-
 
 ### Output
 
