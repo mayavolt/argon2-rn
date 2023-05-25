@@ -11,7 +11,7 @@ Android: [argon2kt](//github.com/lambdapioneer/argon2kt)
 npm i @mayavolt/argon2-rn --save
 "argon2-rn": "mayavolt/argon2-rn#master"
 ```
-Working with React-Native 0.71.8
+Works with React-Native 0.71.8
 
 ## Usage
 
