@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/poowf/react-native-argon2.git", :tag => "v#{s.version}" }
   s.source_files  = "ios/*.{h,m,swift}"
-  s.platform          = :ios, '10.0'
+  s.platform          = :ios, '12.3'
 
   s.dependency 'React-Core'
   s.dependency 'CatCrypto'
