@@ -1,15 +1,10 @@
 # Argon2 for React Native
 
-React Native Wrapper around native Argon2 implementations:
+React Native Wrapper around native Argon2 implementations: [CatCrypto](//github.com/ImKcat/CatCrypto) (iOS) and [argon2kt](//github.com/lambdapioneer/argon2kt) (Android)
 
-iOS: [CatCrypto](//github.com/ImKcat/CatCrypto)
-
-Android: [argon2kt](//github.com/lambdapioneer/argon2kt)
-
-## Getting started
+## Installation
 ```bash
 npm i @mayavolt/argon2-rn --save
-"argon2-rn": "mayavolt/argon2-rn#master"
 ```
 Works with React-Native 0.71.8
 
@@ -27,20 +22,6 @@ try {
     //...
 }
 ```
-
-### Input
-The package takes in the following variables:
-
-| Parameter           | Type    |
-|---------------------|---------|
-| password            | string  |
-| salt                | string  |
-| config              | object  |
-| config.iterations   | integer |
-| config.memory       | integer |
-| config.parallelism  | integer |
-| config.hashLength   | integer |
-| config.mode         | string  |
 
 You can specify a third optional parameter, the configuration object. The default configuration values do demonstrate in the following example:
 
