@@ -1,11 +1,11 @@
 {
-  "name": "react-native-argon2",
-  "version": "2.0.1",
+  "name": "argon2-rn",
+  "version": "3.0.0",
   "description": "React Native Wrapper around Argon2",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/poowf/react-native-argon2"
+    "url": "https://github.com/mayavolt/argon2-rn"
   },
   "scripts": {
     "release": "standard-version"
@@ -19,19 +19,9 @@
     "react-component"
   ],
   "author": "zanechua",
-  "contributors": [
-    {
-      "name": "Zane J. Chua",
-      "email": "hi@zanechua.com",
-      "url": "https://zanechua.com"
-    }
-  ],
   "license": "MIT",
   "devDependencies": {
-    "standard-version": "^9.3.0"
+    "standard-version": "^9.5.0"
   },
-  "bugs": {
-    "url": "https://github.com/poowf/react-native-argon2/issues"
-  },
-  "homepage": "https://github.com/poowf/react-native-argon2#readme"
+  "homepage": "https://github.com/mayavolt/argon2-rn#readme"
 }
