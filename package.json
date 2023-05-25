@@ -1,0 +1,27 @@
+{
+  "name": "argon2-rn",
+  "version": "3.0.0",
+  "description": "React Native Wrapper around Argon2",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mayavolt/argon2-rn"
+  },
+  "scripts": {
+    "release": "standard-version"
+  },
+  "keywords": [
+    "argon2",
+    "react-native",
+    "react",
+    "ios",
+    "android",
+    "react-component"
+  ],
+  "author": "zanechua (fork mayavolt)",
+  "license": "MIT",
+  "devDependencies": {
+    "standard-version": "^9.5.0"
+  },
+  "homepage": "https://github.com/mayavolt/argon2-rn#readme"
+}
