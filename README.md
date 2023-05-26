@@ -4,7 +4,7 @@ React Native Wrapper around native Argon2 implementations: [CatCrypto](//github.
 
 ## Installation
 ```bash
-npm i @mayavolt/argon2-rn --save
+npm i mayavolt/argon2-rn --save
 ```
 Works with React-Native 0.71.8
 
