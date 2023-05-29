@@ -9,38 +9,38 @@ npm i mayavolt/argon2-rn --save
 Works with React-Native 0.71.8
 
 ## Usage
+You can specify a third optional parameter, the configuration object. The default configuration values do demonstrate in the following example:
 
 ```javascript
-import argon2 from 'argon2-rn';
+import {hash} from 'argon2-rn';
 
 try {
-    const password = 'password';
-    const salt = 'random-strong-salt';
-    const result = await argon2(password, salt, {});
+    const result = await hash("password", "salt", {
+      iterations: 2,
+      memory: 32 * 1024,
+      parallelism: 1,
+      hashLength: 32,
+      mode: 'argon2id'
+    });
     const {rawHash, encodedHash} = result;
 } catch (e) {
     //...
 }
 ```
 
-You can specify a third optional parameter, the configuration object. The default configuration values do demonstrate in the following example:
+To verify a password:
 
 ```javascript
-const result = await argon2(
-    password,
-    salt,
-    {
-      iterations: 2,
-      memory: 32 * 1024,
-      parallelism: 1,
-      hashLength: 32,
-      mode: 'argon2id'
-    }
-);
+import {verify} from 'argon2-rn';
+
+try {
+  const result = await verify("<big long hash>", "password")
+  if (result) {
+    // password match
+  } else {
+    // password did not match
+  }
+} catch (e) {
+  //...
+}
 ```
-
-### Output
-
-`rawHash` is the hexadecimal representation
-
-`encodedHash` is the string representation

@@ -7,10 +7,27 @@ class RNArgon2: NSObject {
   static func requiresMainQueueSetup() -> Bool {
     return true
   }
+
+  // Method for verify Argon2 hash
+  @objc
+  func verify(_ hash: String, _ password: String, resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) -> Void {
+
+    // Initialize Argon2
+    let argon2Crypto = CatArgon2Crypto.init();
+    
+    let result = argon2Crypto.verify(hash: hash, password: password)
+    if ((result.error) != nil) {
+        let error = NSError(domain: "com.argon2.rn", code: 200, userInfo: ["Error reason": "Error verifying Argon2 hash"])
+        reject("E_ARGON2", "Error verifying Argon2 hash", error)
+    }
+    
+    resolve(result)
+
+  }
   
   // Method for generating Argon2 hash
   @objc
-  func argon2(_ password: String, salt: String, config: NSDictionary? = nil, resolver resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) -> Void {
+  func hash(_ password: String, salt: String, config: NSDictionary? = nil, resolver resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) -> Void {
     
     // Initialize Argon2 context & convert config dictionary to Swift Dictionary
     let argon2Context = CatArgon2Context.init();
