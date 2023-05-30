@@ -10,17 +10,13 @@ class RNArgon2: NSObject {
 
   // Method for verify Argon2 hash
   @objc
-  func verify(_ hash: String, _ password: String, resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) -> Void {
+  func verify(_ hash: String, _ password: String, resolver resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) -> Void {
 
     // Initialize Argon2
-    let argon2Crypto = CatArgon2Crypto.init();
-    
-    let result = argon2Crypto.verify(hash: hash, password: password)
-    if ((result.error) != nil) {
-        let error = NSError(domain: "com.argon2.rn", code: 200, userInfo: ["Error reason": "Error verifying Argon2 hash"])
-        reject("E_ARGON2", "Error verifying Argon2 hash", error)
-    }
-    
+    let argon2Context = CatArgon2Context.init();
+    argon2Context.mode = .argon2id
+    let argon2Crypto = CatArgon2Crypto.init(context: argon2Context);
+    let result = argon2Crypto.verify(hash: hash, password: password).boolValue()   
     resolve(result)
 
   }

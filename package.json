@@ -1,7 +1,7 @@
 {
   "name": "argon2-rn",
-  "version": "3.0.0",
-  "description": "React Native Wrapper around Argon2",
+  "version": "3.0.1",
+  "description": "Argon2 React Native Wrapper",
   "main": "index.js",
   "repository": {
     "type": "git",
