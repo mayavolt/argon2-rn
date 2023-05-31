@@ -10,7 +10,7 @@ class RNArgon2: NSObject {
 
   // Method for verify Argon2 hash
   @objc
-  func verify(_ hash: String, _ password: String, resolver resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) -> Void {
+  func verify(_ hash: String, password: String, resolver resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) -> Void {
 
     // Initialize Argon2
     let argon2Context = CatArgon2Context.init();
