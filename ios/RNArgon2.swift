@@ -15,8 +15,11 @@ class RNArgon2: NSObject {
     // Initialize Argon2
     let argon2Context = CatArgon2Context.init();
     argon2Context.mode = .argon2id
+
+    // Initialize Argon2 crypto with the context
     let argon2Crypto = CatArgon2Crypto.init(context: argon2Context);
     let result = argon2Crypto.verify(hash: hash, password: password).boolValue()   
+
     resolve(result)
 
   }
