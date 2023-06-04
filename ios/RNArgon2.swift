@@ -13,12 +13,12 @@ class RNArgon2: NSObject {
   func verify(_ hash: String, password: String, resolver resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) -> Void {
 
     // Initialize Argon2
-    let argon2Context = CatArgon2Context.init();
-    argon2Context.mode = .argon2id
+    let context = CatArgon2Context.init();
+    context.mode = .argon2id
 
     // Initialize Argon2 crypto with the context
-    let argon2Crypto = CatArgon2Crypto.init(context: argon2Context);
-    let result = argon2Crypto.verify(hash: hash, password: password).boolValue()   
+    let argon2 = CatArgon2Crypto.init(context);
+    let result = argon2.verify(hash: hash, password: password).boolValue()   
 
     resolve(result)
 
@@ -29,26 +29,26 @@ class RNArgon2: NSObject {
   func hash(_ password: String, salt: String, config: NSDictionary? = nil, resolver resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) -> Void {
     
     // Initialize Argon2 context & convert config dictionary to Swift Dictionary
-    let argon2Context = CatArgon2Context.init();
+    let context = CatArgon2Context.init();
     let configDict = config as! Dictionary<String,Any>
 
     // Set Argon2 context properties based on the config values
-    argon2Context.iterations = configDict["iterations", default: 2 ] as! Int;
-    argon2Context.memory = configDict["memory", default: 32 * 1024 ] as! Int;
-    argon2Context.parallelism = configDict["parallelism", default: 1 ] as! Int;
-    argon2Context.salt = salt;
-    argon2Context.hashLength = configDict["hashLength", default: 32 ] as! Int;
-    argon2Context.mode = getArgon2Mode(mode: configDict["mode", default: "argon2id" ] as! String);
+    context.iterations = configDict["iterations", default: 2 ] as! Int;
+    context.memory = configDict["memory", default: 32 * 1024 ] as! Int;
+    context.parallelism = configDict["parallelism", default: 1 ] as! Int;
+    context.salt = salt;
+    context.hashLength = configDict["hashLength", default: 32 ] as! Int;
+    context.mode = getArgon2Mode(mode: configDict["mode", default: "argon2id" ] as! String);
 
     // Initialize Argon2 crypto with the context
-    let argon2Crypto = CatArgon2Crypto.init(context: argon2Context);
+    let argon2 = CatArgon2Crypto.init(context);
     
     // Generate encoded and raw Argon2 hashes
-    let encodedResult = argon2Crypto.hash(password: password);
-    let rawResult = argon2Crypto.hash(password: password);
+    let encodedResult = argon2.hash(password: password);
+    let rawResult = argon2.hash(password: password);
 
     // Set the hasher to hash as raw since encoded is the default
-    argon2Crypto.context.hashResultType = .hashRaw;
+    argon2.context.hashResultType = .hashRaw;
     
     // Check for errors in hash generation
     if ((rawResult.error) != nil || (encodedResult.error) != nil) {
